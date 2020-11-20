@@ -1,1 +1,1 @@
-(()=>{"use strict";alert("utilss js works")})();
+(()=>{"use strict";jQuery(document).ready((function(s){alert("utilss js works")}))})();
