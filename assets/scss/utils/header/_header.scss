@@ -1,0 +1,99 @@
+.header-nav {
+  .header-nav__nav {
+    .menu-top {
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+        "logo nav"
+        "aside aside";
+      @include ipad-small {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-areas: "logo nav aside";
+      }
+      &__logo {
+        grid-area: logo;
+      }
+      &__nav {
+        display: none;
+        right: 0;
+        z-index: 9;
+        position: fixed;
+        @include ipad-small {
+          display: block !important;
+          position: relative;
+        }
+        grid-area: nav;
+        div:nth-child(1) {
+          ul {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px;
+            background-color: white; // Change to use color variables
+            @include ipad-small {
+              width: 350px;
+              flex-direction: row;
+              background-color: white; // Change to use color variables
+            }
+            a {
+              display: block;
+            }
+            li {
+              display: inline-block;
+              width: 100%;
+              a {
+                text-decoration: none;
+                display: block;
+                border-top: 1px #a9aaa9 solid;
+                @include ipad-small {
+                  border-top: none;
+                }
+              }
+              ul {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                @include ipad-small {
+                  position: absolute;
+                }
+              }
+            }
+            li:hover ul {
+              // display: none;
+              @include ipad-small {
+                // display: block;
+              }
+            }
+          }
+        }
+      }
+      &__aside {
+        grid-area: aside;
+      }
+      &__bg {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5); // Change to use color variables
+        position: fixed;
+        z-index: 5;
+      }
+    }
+    .burger-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 9;
+      display: block;
+      position: fixed;
+      @include ipad-small {
+        display: none;
+      }
+    }
+  }
+}
